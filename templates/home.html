@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>PixelPals</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+
+        .header {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 30px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Основной контейнер */
+        .container {
+            display: flex;
+            min-height: 80vh;
+        }
+
+        .sidebar {
+            width: 220px;
+            background-color: #2d6cdf;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            background-color: #f4f4f4;
+        }
+
+        .event-card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+
+        .footer {
+            background-color: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+  function openSidebar() {
+    document.getElementById("sidebar").classList.add("open");
+  }
+
+  function closeSidebar() {
+    document.getElementById("sidebar").classList.remove("open");
+  }
+</script>
+
+
+
+
+    <div class="header">
+        <h1>PixelPals</h1>
+        <div class="nav-links">
+            <a href="#about">О проекте</a>
+            <a href="#team">Команда</a>
+            <a href="#contacts">Контакты</a>
+              <a href="/report" class="report-button">Report an issue</a>
+            <a href="#login">Вход</a>
+        </div>
+    </div>
+
+    <section class="hero">
+  <div class="hero-content">
+    <h1>Локальные тусовки рядом с тобой 💥</h1>
+    <p>Открывай вечеринки, мастер-классы и концерты в своем городе!</p>
+  </div>
+</section>
+
+
+<!-- Кнопка-гамбургер -->
+<button class="hamburger" onclick="openSidebar()">☰</button>
+
+<!-- Сайдбар -->
+<aside id="sidebar" class="sidebar">
+  <button class="close-btn" onclick="closeSidebar()">✕</button>
+  <h2>Категории</h2>
+  <ul>
+    <li><a href="#">🎵 Музыка</a></li>
+    <li><a href="#">📚 Образование</a></li>
+    <li><a href="#">🏃 Спорт</a></li>
+    <li><a href="#">🎨 Искусство</a></li>
+  </ul>
+</aside>
+
+        <div class="main-content">
+            <h1>
+                {% if category == 'all' %} Все события
+                {% elif category == 'sport' %} Спорт
+                {% elif category == 'education' %} Учёба
+                {% elif category == 'music' %} Музыка
+                {% else %} Неизвестная категория {% endif %}
+            </h1>
+
+            <div class="event-card">
+                <h2>Встреча Книжного Клуба</h2>
+                <p> Книжный Клуб "Остин" назначил встчречу с участниками клуба в кофейне "Зебра" по адресу Тота да тота. Время встречи 17.00 </p>
+            </div>
+
+            <div class="event-card">
+                <h2>Ещё одно мероприятие</h2>
+                <p>Описание, дата и место...</p>
+            </div>
+            <hr>
+
+<section id="about">
+    <h2>О проекте</h2>
+    <p>PixelPals — это платформа, созданная для того, чтобы вы легко находили интересные мероприятия в вашем городе.
+    Будь то спортивные события, обучающие мастер-классы или музыкальные концерты — у нас есть всё!</p>
+</section>
+
+<section id="team" style="margin-top: 30px;">
+    <h2>О нашей команде</h2>
+    <p>Мы — команда энтузиастов, объединённых целью сделать локальные события доступными для всех.
+    Наши ценности — открытость, инклюзивность и технологичность.</p>
+    <ul>
+        <li><strong>Аружан Т.</strong> — backend & иотоита</li>
+        <li><strong> Аида Д.</strong> — фронтенд & дилилзайн</li>
+        <li><strong>Айзере А.</strong> — UX-иссотодледования</li>
+    </ul>
+</section>
+
+        </div>
+    </div>
+
+
+    <!-- Футер -->
+    <div class="footer" id="contacts">
+        <p>&copy; 2025 Local Events Team | <a href="mailto:info@localevents.kz" style="color: #dbeafe;">info@localevents.kz</a></p>
+        <p id="about">Local Events — проект для поиска ивентов в вашем городе. Здесь легко найти мероприятия по интересам.</p>
+        <p id="team">Команда: Аружан, Айзере и Аида</p>
+    </div>
+
+</body>
+</html>
