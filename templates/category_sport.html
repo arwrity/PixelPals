@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="category-page" style="text-align: center; margin-bottom: 30px;">
+  <h2 style="font-size: 32px; color: #9d174d;">🏄 Спортивные мероприятия</h2>
+  <p style="font-size: 18px; color: #333;">
+    Здесь собраны забеги, йога, турниры и другие спортивные события города. Двигайся с нами!
+  </p>
+</div>
+
+<div class="sport-cards" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+  <!-- Карточка 1 -->
+  <div style="background-color: white; border-radius: 12px; overflow: hidden; width: 100%; max-width: 600px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWh4aHNrZ3pndThoajduMG04NnJmdTd3aXVhejV4b2l1ZHc4eGc5dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DBbPjLMsQPruMkDcrd/giphy.gif" alt="Йога" style="width: 100%; height: 250px; object-fit: cover;">
+    <div style="padding: 20px;">
+      <h3 style="color: #1e3a8a; font-size: 24px;">Утренняя йога</h3>
+      <p style="margin: 8px 0;">📅 23 июля 2025 | 📍 Парк 28 Панфиловцев, Караганда</p>
+      <p>🏄 Категория: Спорт</p>
+      <p>🌍 Координаты: 43.2389, 76.8897</p>
+      <p style="color: #444;">
+        Начните день с гармонии и спокойствия на йоге в парке. Подходит для всех уровней. Возьмите коврик и воду!
+      </p>
+    </div>
+  </div>
+
+  <!-- Карточка 2 -->
+  <div style="background-color: white; border-radius: 12px; overflow: hidden; width: 100%; max-width: 600px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDI1cWNzMmt3NmFidzcydWx6bXR3N2c4bnltZGVlOWpyeDlra3ZocyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nO9PMEYoSI0jTbdtyC/giphy.gif" alt="Забег" style="width: 100%; height: 250px; object-fit: cover;">
+    <div style="padding: 20px;">
+      <h3 style="color: #1e3a8a; font-size: 24px;">Городской забег</h3>
+      <p style="margin: 8px 0;">📅 30 июля 2025 | 📍 Центральная площадь, Астана</p>
+      <p>🏃 Категория: Спорт</p>
+      <p>🌍 Координаты: 51.1605, 71.4704</p>
+      <p style="color: #444;">
+        Прими участие в забеге по живописным улицам столицы. Дистанции на 5 и 10 км, медали для всех!
+      </p>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+ <!-- Карта -->
+  <div id="map" style="height: 300px; border-radius: 12px; border: 2px solid #f090c7;"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+
+<script>
+  var map = L.map('map').setView([43.2389, 76.8897], 13);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  L.marker([43.2389, 76.8897])
+    .addTo(map)
+    .bindPopup("Пример мероприятия");
+</script>
+
+
+{% endblock %}
