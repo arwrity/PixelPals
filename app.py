@@ -12,7 +12,6 @@ def category(category_name):
     return render_template('index.html', category=category_name)
 
 
-
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():
     if request.method == 'POST':
@@ -29,10 +28,9 @@ def submit():
     return render_template('submit.html')
 
 
-@app.route('/thank-you')
+@app.route('/thank_you')
 def thank_you():
-    return '<h2>Спасибо за заявку! Мы скоро с вами свяжемся.</h2>'
-
+    return render_template('thank_you.html')
 
 @app.route("/music")
 def music():
@@ -46,46 +44,30 @@ def education():
 def sport():
     return render_template("sport.html")
 
-@app.route("/art")
-def art():
-    return render_template("art.html")
 
 @app.route('/category/<category>')
 def show_category(category):
-    events = {
-        'music': [
-            {'title': 'Концерт на крыше', 'desc': '21 июля 2025 • Алматы', 'lat': 43.2389, 'lon': 76.8897},
-            {'title': 'Jazz Night', 'desc': '25 июля 2025 • Нур-Султан', 'lat': 51.1605, 'lon': 71.4704},
-        ],
-        'education': [
-            {'title': 'Мастер-класс по UI/UX', 'desc': '22 июля 2025 • Нур-Султан', 'lat': 51.1605, 'lon': 71.4704},
-            {'title': 'Лекция по кибербезопасности', 'desc': '30 июля 2025 • Алматы', 'lat': 43.2389, 'lon': 76.8897},
-        ],
-        'sport': [
-            {'title': 'Утренняя йога', 'desc': '23 июля 2025 • Караганда', 'lat': 49.8047, 'lon': 73.1094},
-            {'title': 'Забег 5 км', 'desc': '28 июля 2025 • Шымкент', 'lat': 42.3417, 'lon': 69.5901},
-        ],
-        'art': [
-            {'title': 'Выставка современного искусства', 'desc': '24 июля 2025 • Алматы', 'lat': 43.2389,
-             'lon': 76.8897},
-            {'title': 'Пленэр с художниками', 'desc': '27 июля 2025 • Нур-Султан', 'lat': 51.1605, 'lon': 71.4704},
-        ]
-    }
-
-    selected_events = events.get(category, [])
-
-    return render_template('category.html', category=category, events=selected_events)
+    try:
+        return render_template(f'category_{category}.html')
+    except:
+        return "<h2>Категория не найдена</h2>", 404
 
 
-events = [
-    {
-        'title': 'Йога в парке',
-        'description': 'Утренняя йога в центре города.',
-        'lat': 43.2389,
-        'lon': 76.8897
-    },
-    ...
-]
+@app.route('/category_music')
+def category_music():
+    return render_template('category_music.html', title="Музыка")
+
+@app.route('/category_education')
+def category_education():
+    return render_template('category_education.html', title="Образование")
+
+@app.route('/category_sport')
+def category_sport():
+    return render_template('category_sport.html', title="Спорт")
+
+@app.route('/category_art')
+def category_art():
+    return render_template('category_art.html', title="Искусство")
 
 
 if __name__ == '__main__':
