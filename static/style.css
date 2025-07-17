@@ -1,0 +1,191 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff0f5;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #ec407a;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+
+.sidebar h3 {
+    margin-top: 0;
+    color: #880e4f;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 12px 0;
+}
+
+.sidebar ul li a {
+    color: #6a1b9a;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.sidebar ul li a:hover {
+    color: #ad1457;
+}
+
+/* Main content */
+.main-content {
+    margin-left: 240px;
+    padding: 30px;
+}
+
+/* Section titles */
+h2 {
+    color: #d81b60;
+    margin-top: 40px;
+    border-bottom: 2px solid #f8bbd0;
+    padding-bottom: 10px;
+}
+
+/* Event cards */
+.event {
+    background-color: #ffffff;
+    border: 1px solid #f8bbd0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.event:hover {
+    transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #fce4ec;
+    color: #555;
+    margin-top: 40px;
+    border-top: 1px solid #f8bbd0;
+}
+
+.hero {
+    background-image: url('/static/party.jpg'); /* Замени на своё фото */
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5); /* затемнение фона */
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 3.5em;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 1.3em;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+}
+
+.hamburger {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #ff69b4;
+    color: white;
+    font-size: 26px;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 1001;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Скрыт по умолчанию */
+    width: 250px;
+    height: 100%;
+    background-color: #ffe4f0;
+    padding: 20px;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #d63384;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: #d63384;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.sidebar ul li a:hover {
+    color: #b2005f;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #d63384;
+    cursor: pointer;
+    float: right;
+}
