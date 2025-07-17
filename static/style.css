@@ -189,3 +189,162 @@ footer {
     cursor: pointer;
     float: right;
 }
+
+.publish-section {
+    background-color: #fff0f5;
+    text-align: center;
+    padding: 60px 20px;
+    margin-top: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.1);
+}
+
+.publish-section h2 {
+    color: #d63384;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.publish-section p {
+    color: #555;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.publish-btn {
+    display: inline-block;
+    background-color: #ff69b4;
+    color: white;
+    font-weight: bold;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.publish-btn:hover {
+    background-color: #d63384;
+}
+
+
+.form-page {
+    max-width: 600px;
+    margin: 60px auto;
+    background-color: #fff0f5;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(255, 105, 180, 0.2);
+}
+
+.event-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #d63384;
+}
+
+.event-form input,
+.event-form textarea,
+.event-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #ffc0cb;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.event-form button {
+    background-color: #ff69b4;
+    color: white;
+    font-size: 18px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.event-form button:hover {
+    background-color: #d63384;
+}
+
+
+.events-section {
+  padding: 60px 20px;
+  background-color: #fff5f8;
+  text-align: center;
+}
+
+.section-title {
+  color: #d63384;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.event-card {
+  background-color: white;
+  width: 260px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.1);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.event-card1 {
+  background-color: white;
+  width: 860px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.1);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  font-weight: bold;
+  padding: 12px;
+  font-size: 16px;
+  color: white;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #d63384;
+}
+
+.card-body p {
+  color: #666;
+  font-size: 14px;
+}
+
+/* Цвета категорий */
+.music {
+  background-color: #ff69b4;
+}
+
+.education {
+  background-color: #ffb6c1;
+}
+
+.sport {
+  background-color: #ff85a2;
+}
+
+.event-link {
+  text-decoration: none;
+}
