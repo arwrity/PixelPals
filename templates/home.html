@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>PixelPals</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 
     <style>
         body {
@@ -105,14 +108,12 @@
 
 
 
-
     <div class="header">
-        <h1>PixelPals</h1>
+        <h1> </h1>
         <div class="nav-links">
             <a href="#about">О проекте</a>
             <a href="#team">Команда</a>
             <a href="#contacts">Контакты</a>
-              <a href="/report" class="report-button">Report an issue</a>
             <a href="#login">Вход</a>
         </div>
     </div>
@@ -132,33 +133,59 @@
 <aside id="sidebar" class="sidebar">
   <button class="close-btn" onclick="closeSidebar()">✕</button>
   <h2>Категории</h2>
-  <ul>
-    <li><a href="#">🎵 Музыка</a></li>
-    <li><a href="#">📚 Образование</a></li>
-    <li><a href="#">🏃 Спорт</a></li>
-    <li><a href="#">🎨 Искусство</a></li>
-  </ul>
+<ul>
+  <li><a href="{{ url_for('show_category', category = 'music') }}">🎵 Музыка</a></li>
+  <li><a href="{{ url_for('show_category', category ='education') }}">📚 Образование</a></li>
+  <li><a href="{{ url_for('show_category', category ='sport') }}">🏃 Спорт</a></li>
+  <li><a href="{{ url_for('show_category', category ='art') }}">🎨 Искусство</a>
+  </li>
+</ul>
+
 </aside>
 
-        <div class="main-content">
-            <h1>
-                {% if category == 'all' %} Все события
-                {% elif category == 'sport' %} Спорт
-                {% elif category == 'education' %} Учёба
-                {% elif category == 'music' %} Музыка
-                {% else %} Неизвестная категория {% endif %}
-            </h1>
 
-            <div class="event-card">
-                <h2>Встреча Книжного Клуба</h2>
-                <p> Книжный Клуб "Остин" назначил встчречу с участниками клуба в кофейне "Зебра" по адресу Тота да тота. Время встречи 17.00 </p>
-            </div>
 
-            <div class="event-card">
-                <h2>Ещё одно мероприятие</h2>
-                <p>Описание, дата и место...</p>
-            </div>
-            <hr>
+
+<section class="events-section">
+  <h2 class="section-title">Предстоящие мероприятия</h2>
+  <div class="cards-container">
+
+
+  <a href="/music" class="event-link">
+    <div class="event-card">
+      <div class="card-header music">🎵 Музыка</div>
+      <div class="card-body">
+        <h3>Концерт на крыше</h3>
+        <p>21 июля 2025 • Алматы</p>
+      </div>
+    </div>
+  </a>
+
+  <a href="/education" class="event-link">
+    <div class="event-card">
+      <div class="card-header education">🎓 Образование</div>
+      <div class="card-body">
+        <h3>Мастер-класс по UI/UX</h3>
+        <p>22 июля 2025 • Нур-Султан</p>
+      </div>
+    </div>
+  </a>
+
+  <a href="/sport" class="event-link">
+    <div class="event-card">
+      <div class="card-header sport">🏃 Спорт</div>
+      <div class="card-body">
+        <h3>Утренняя йога</h3>
+        <p>23 июля 2025 • Караганда</p>
+      </div>
+    </div>
+  </a>
+
+</div>
+
+
+
+
 
 <section id="about">
     <h2>О проекте</h2>
@@ -176,9 +203,18 @@
         <li><strong>Айзере А.</strong> — UX-иссотодледования</li>
     </ul>
 </section>
-
         </div>
-    </div>
+
+    <hr>
+
+    <section class="publish-section">
+  <h2>Хотите опубликовать своё мероприятие?</h2>
+  <p>Оставьте заявку, и мы с вами свяжемся!</p>
+  <a href="/submit" class="publish-btn">Оставить заявку</a>
+</section>
+
+
+
 
 
     <!-- Футер -->
