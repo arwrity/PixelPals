@@ -18,7 +18,7 @@
         .header {
             background-color: #1e3a8a;
             color: white;
-            padding: 30px 30px;
+            padding: 40px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -40,7 +40,7 @@
             text-decoration: underline;
         }
 
-        /* Основной контейнер */
+
         .container {
             display: flex;
             min-height: 80vh;
@@ -48,7 +48,7 @@
 
         .sidebar {
             width: 220px;
-            background-color: #2d6cdf;
+            background-color: #1e3a8a;
             color: white;
             padding: 20px;
             box-sizing: border-box;
@@ -120,7 +120,7 @@
 
     <section class="hero">
   <div class="hero-content">
-    <h1>Локальные тусовки рядом с тобой 💥</h1>
+    <h1>Локальные мероприятия рядом с тобой 💥</h1>
     <p>Открывай вечеринки, мастер-классы и концерты в своем городе!</p>
   </div>
 </section>
@@ -133,15 +133,21 @@
 <aside id="sidebar" class="sidebar">
   <button class="close-btn" onclick="closeSidebar()">✕</button>
   <h2>Категории</h2>
-<ul>
-  <li><a href="{{ url_for('show_category', category = 'music') }}">🎵 Музыка</a></li>
-  <li><a href="{{ url_for('show_category', category ='education') }}">📚 Образование</a></li>
-  <li><a href="{{ url_for('show_category', category ='sport') }}">🏃 Спорт</a></li>
-  <li><a href="{{ url_for('show_category', category ='art') }}">🎨 Искусство</a>
-  </li>
-</ul>
+  <ul>
+    <li><a href="{{ url_for('category_music') }}">🎵 Музыка</a></li>
+    <li><a href="{{ url_for('category_education') }}">📚 Образование</a></li>
+    <li><a href="{{ url_for('category_sport') }}">🏃 Спорт</a></li>
+    <li><a href="{{ url_for('category_art') }}">🎨 Искусство</a></li>
+  </ul>
 
 </aside>
+
+
+    <div class="wave-container">
+  <svg viewBox="0 0 1600 320" preserveAspectRatio="none">
+    <path fill="none" stroke="#ff69b4" stroke-width="4" d="M0,160 C60,186.7 120,213 180,240 C240,267 300,277.3 360,277.3 C420,277.3 480,256 540,224 C600,192 660,160 720,165.3 C780,171 840,213 900,234.7 C960,256 1020,256 1080,256 C1140,256 1200,224 1260,192 C1320,160 1380,160 1440,165.3 C1500,171 1560,213 1600,234.7"></path>
+  </svg>
+</div>
 
 
 
@@ -156,7 +162,7 @@
       <div class="card-header music">🎵 Музыка</div>
       <div class="card-body">
         <h3>Концерт на крыше</h3>
-        <p>21 июля 2025 • Алматы</p>
+        <p>19 июля 2025 • Астана</p>
       </div>
     </div>
   </a>
@@ -166,7 +172,7 @@
       <div class="card-header education">🎓 Образование</div>
       <div class="card-body">
         <h3>Мастер-класс по UI/UX</h3>
-        <p>22 июля 2025 • Нур-Султан</p>
+        <p>20 июля 2025 • Астана</p>
       </div>
     </div>
   </a>
@@ -185,27 +191,35 @@
 
 
 
-
-
-<section id="about">
-    <h2>О проекте</h2>
-    <p>PixelPals — это платформа, созданная для того, чтобы вы легко находили интересные мероприятия в вашем городе.
-    Будь то спортивные события, обучающие мастер-классы или музыкальные концерты — у нас есть всё!</p>
+<section id="about" style="margin-top: 40px; background-color: #fff0f5; padding: 30px; border-radius: 12px;">
+    <h2 style="font-size: 32px; margin-bottom: 20px; color: #d81b60;">О проекте</h2>
+    <p style="font-size: 22px; line-height: 2.7;">
+        <strong>PixelPals</strong> — это платформа, созданная для того, чтобы вы <strong>легко находили интересные мероприятия</strong> в вашем городе.
+    </p>
+    <p style="font-size: 18px; line-height: 1.7;">
+        Будь то <em>спортивные события</em>, <em>обучающие мастер-классы</em> или <em>музыкальные концерты</em> — у нас есть всё! 🎉
+    </p>
 </section>
 
-<section id="team" style="margin-top: 30px;">
-    <h2>О нашей команде</h2>
-    <p>Мы — команда энтузиастов, объединённых целью сделать локальные события доступными для всех.
-    Наши ценности — открытость, инклюзивность и технологичность.</p>
-    <ul>
-        <li><strong>Аружан Т.</strong> — backend & иотоита</li>
-        <li><strong> Аида Д.</strong> — фронтенд & дилилзайн</li>
-        <li><strong>Айзере А.</strong> — UX-иссотодледования</li>
+<section id="team" style="margin-top: 40px; background-color: #fff0f5; padding: 30px; border-radius: 12px;">
+    <h2 style="font-size: 32px; margin-bottom: 15px; color: #1e3a8a;" >О нашей команде</h2>
+    <p style="font-size: 18px; line-height: 1.7;">
+        Мы — команда энтузиастов, объединённых целью сделать <strong>локальные события доступными для всех</strong>.
+    </p>
+    <p style="font-size: 18px; line-height: 1.7;">
+        Наши ценности — <strong>открытость</strong>, <strong>инклюзивность</strong> и <strong>технологичность</strong>.
+    </p>
+    <ul style="font-size: 18px; line-height: 1.7; padding-left: 20px; margin-top: 20px;">
+        <li><strong>Аружан </strong> — backend & frontend 👩‍💻</li>
+        <li><strong>Аида </strong> — backend & database 🧠</li>
+        <li><strong>Айзере </strong> — design 🎨</li>
     </ul>
 </section>
-        </div>
+
+
 
     <hr>
+
 
     <section class="publish-section">
   <h2>Хотите опубликовать своё мероприятие?</h2>
