@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}PixelPals{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 220px;
+            background-color: #2d6cdf;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            background-color: #f4f4f4;
+        }
+
+        .footer {
+            background-color: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1></h1>
+    <div class="nav-links">
+        <a href="/">Главная</a>
+        <a href="#about">О проекте</a>
+        <a href="#team">Команда</a>
+        <a href="#contacts">Контакты</a>
+        <a href="#login">Вход</a>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Сайдбар -->
+    <aside class="sidebar">
+        <h2>Категории</h2>
+        <ul>
+            <li><a href="{{ url_for('show_category', category='music') }}">🎵 Музыка</a></li>
+            <li><a href="{{ url_for('show_category', category='education') }}">📚 Образование</a></li>
+            <li><a href="{{ url_for('show_category', category='sport') }}">🏃 Спорт</a></li>
+            <li><a href="{{ url_for('show_category', category='art') }}">🎨 Искусство</a></li>
+        </ul>
+    </aside>
+
+
+
+    <!-- Контент страницы -->
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    {% block scripts %}{% endblock %}
+
+</div>
+
+<div class="footer" id="contacts">
+    <p>&copy; 2025 Local Events Team | <a href="mailto:info@localevents.kz" style="color: #dbeafe;">info@localevents.kz</a></p>
+    <p id="about">Local Events — проект для поиска ивентов в вашем городе. Здесь легко найти мероприятия по интересам.</p>
+    <p id="team">Команда: Аружан, Айзере и Аида</p>
+</div>
+
+</body>
+</html>
