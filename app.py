@@ -51,7 +51,7 @@ def show_category(category):
         return render_template(f'category_{category}.html')
     except:
         return "<h2>Категория не найдена</h2>", 404
-
+        
 
 @app.route('/category_music')
 def category_music():
