@@ -20,6 +20,21 @@
       <p style="color: #444;">
         Узнай о современных угрозах и методах защиты данных. Подходит студентам и ИТ-специалистам.
       </p>
+                  <!-- Кнопка участвовать -->
+<button onclick="showPopup()" style="
+  background-color: #ff85a2;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+" onmouseover="this.style.backgroundColor='#3b4cca'" onmouseout="this.style.backgroundColor='#ff85a2'">
+  Участвовать
+</button>
+
     </div>
   </div>
 
@@ -34,6 +49,22 @@
       <p style="color: #444;">
         Прокачай навыки речи и уверенности на сцене. Практика, обратная связь и техники TED.
       </p>
+
+                  <!-- Кнопка участвовать -->
+<button onclick="showPopup()" style="
+  background-color: #ff85a2;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+" onmouseover="this.style.backgroundColor='#3b4cca'" onmouseout="this.style.backgroundColor='#ff85a2'">
+  Участвовать
+</button>
+
     </div>
   </div>
 </div>
@@ -60,6 +91,17 @@
   L.marker([43.2389, 76.8897])
     .addTo(map)
     .bindPopup("Пример мероприятия");
+</script>
+
+<script>
+  function showPopup() {
+    const popup = document.getElementById("popup");
+    popup.style.display = "block";
+
+    setTimeout(() => {
+      popup.style.display = "none";
+    }, 3000); // скрыть через 3 секунды
+  }
 </script>
 
 {% endblock %}
