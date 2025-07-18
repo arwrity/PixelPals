@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask import Flask, render_template, request, redirect, url_for
 
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -12,6 +13,21 @@ def category(category_name):
     return render_template('index.html', category=category_name)
 
 
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        email = request.form["email"]
+        password = request.form["password"]
+
+        if email and password:
+            return redirect(url_for("home"))
+        else:
+            return "Invalid credentials", 401
+
+    return render_template("login.html")
+
+
+
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():
     if request.method == 'POST':
@@ -20,7 +36,6 @@ def submit():
         event_description = request.form['event']
         category = request.form['category']
 
-        # Здесь можно сохранить заявку в файл, базу данных или отправить на email
         print(f"Заявка: {name}, {email}, {event_description}, категория: {category}")
 
         return redirect(url_for('thank_you'))
@@ -35,6 +50,7 @@ def thank_you():
 @app.route("/music")
 def music():
     return render_template("music.html")
+
 
 @app.route("/education")
 def education():
@@ -51,7 +67,7 @@ def show_category(category):
         return render_template(f'category_{category}.html')
     except:
         return "<h2>Категория не найдена</h2>", 404
-        
+
 
 @app.route('/category_music')
 def category_music():
