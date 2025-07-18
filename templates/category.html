@@ -2,18 +2,14 @@
 
 {% block content %}
 <div class="p-6">
-  <!-- Заголовок категории -->
   <h1 class="text-3xl font-bold text-pink-600 mb-4">
     {{ category|capitalize }}
   </h1>
 
-  <!-- Краткое описание -->
   <p class="text-gray-700 mb-6">
     Добро пожаловать в раздел "{{ category }}". Здесь собраны мероприятия, относящиеся к этой категории.
   </p>
 
-
-  <!-- Список мероприятий -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
     {% for event in events %}
       <div class="bg-white shadow rounded-xl p-4 border-l-4 border-pink-500">
@@ -25,7 +21,7 @@
     {% endfor %}
   </div>
 
-  <!-- Карта -->
+
   <div id="map" style="height: 300px; border-radius: 12px; border: 2px solid #f090c7;"></div>
 </div>
 {% endblock %}
