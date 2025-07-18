@@ -17,11 +17,90 @@
       <p style="color: #444;">
         Присоединяйтесь к нашему мастер-классу по UI/UX дизайну и узнайте секреты создания эффективных интерфейсов. Ведущий — опытный дизайнер, который поделится своими знаниями и практическими навыками. Участники получат возможность поработать над реальными проектами и получить индивидуальную обратную связь. Не упустите шанс прокачать свои навыки и расширить кругозор в дизайне!
       </p>
+
+         <!-- Кнопка участвовать -->
+<button onclick="showPopup()" style="
+  background-color: #ff85a2;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+" onmouseover="this.style.backgroundColor='#3b4cca'" onmouseout="this.style.backgroundColor='#ff85a2'">
+  Участвовать
+</button>
+
+<!-- Попап -->
+<div id="popup" style="
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #ff85a2;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+">
+  ✅ Вы зарегистрировались!
+</div>
+
+
+      <!-- Комментарии -->
+<div style="margin-top: 20px;">
+  <textarea id="comment-input" placeholder="Оставьте комментарий..." style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc;"></textarea>
+  <button onclick="addComment()" style="
+    margin-top: 10px;
+    background-color: #1e3a8a;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+  ">Отправить</button>
+
+  <div id="comment-section" style="margin-top: 15px;"></div>
+</div>
+
+
     </div>
   </div>
 
 
   </div>
+
+<script>
+  function showPopup() {
+    const popup = document.getElementById("popup");
+    popup.style.display = "block";
+
+    setTimeout(() => {
+      popup.style.display = "none";
+    }, 3000); // скрыть через 3 секунды
+  }
+</script>
+
+
+<script>
+  function addComment() {
+    const input = document.getElementById("comment-input");
+    const comment = input.value.trim();
+    if (comment === "") return;
+
+    const section = document.getElementById("comment-section");
+    const p = document.createElement("p");
+    p.textContent = "💬 " + comment;
+    p.style.margin = "8px 0";
+    section.appendChild(p);
+
+    input.value = "";
+  }
+</script>
+
 
 {% endblock %}
 
