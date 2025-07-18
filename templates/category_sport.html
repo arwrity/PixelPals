@@ -20,6 +20,22 @@
       <p style="color: #444;">
         Начните день с гармонии и спокойствия на йоге в парке. Подходит для всех уровней. Возьмите коврик и воду!
       </p>
+
+            <!-- Кнопка участвовать -->
+<button onclick="showPopup()" style="
+  background-color: #ff85a2;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+" onmouseover="this.style.backgroundColor='#3b4cca'" onmouseout="this.style.backgroundColor='#ff85a2'">
+  Участвовать
+</button>
+
     </div>
   </div>
 
@@ -34,9 +50,28 @@
       <p style="color: #444;">
         Прими участие в забеге по живописным улицам столицы. Дистанции на 5 и 10 км, медали для всех!
       </p>
+
+
+            
+<button onclick="showPopup()" style="
+  background-color: #ff85a2;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+" onmouseover="this.style.backgroundColor='#3b4cca'" onmouseout="this.style.backgroundColor='#ff85a2'">
+  Участвовать
+</button>
+
+
     </div>
   </div>
 </div>
+
 
 <br>
 <br>
@@ -62,5 +97,16 @@
     .bindPopup("Пример мероприятия");
 </script>
 
+
+<script>
+  function showPopup() {
+    const popup = document.getElementById("popup");
+    popup.style.display = "block";
+
+    setTimeout(() => {
+      popup.style.display = "none";
+    }, 3000); // скрыть через 3 секунды
+  }
+</script>
 
 {% endblock %}
